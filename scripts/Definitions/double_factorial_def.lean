@@ -9,11 +9,14 @@ open nat
 -- ...
 definition efac : nat → nat
 | efac 0 := 1
-| efac 2 := 2
-| efac (n+1) := efac(n) * (2*n)
+| efac 1 := 2
+| efac (n+1) := efac(n) * (2*(n+1))
 
-check efac 0 = 1
-check efac 3 = 48
+eval efac 0
+eval efac 1
+eval efac 2
+eval efac 3
+
 
 
 
@@ -27,8 +30,7 @@ check efac 3 = 48
 definition ofac : nat → nat
 | ofac 0 := 1
 | ofac 1 := 3
-| ofac (n+1) := ofac(n) * (2*n+1)
+| ofac (n+1) := ofac(n) * (2*(n+1)+1)
 
-check ofac 7 = 105
-
+eval ofac 7
 
