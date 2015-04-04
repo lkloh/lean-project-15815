@@ -32,5 +32,6 @@ definition ofac : nat → nat
 | ofac 1 := 3
 | ofac (n+1) := ofac(n) * (2*(n+1)+1)
 
-eval ofac 7
+eval ofac 0
+eval ofac 3
 
