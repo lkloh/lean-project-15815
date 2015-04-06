@@ -30,5 +30,5 @@ theorem efac_pos : ∀ n, 0 < efac n
 | efac_pos (n+2) := 
     have H1 : 0 < 2*(n+2), from !succ_pos,
     calc
-      0 < efac(n) * (2*(n+2)) : mul_pos (efac_pos(n+1)) 2*(n+2)
+      0 < efac(n+1) * (2*(n+2)) : mul_pos (efac_pos(n+1)) H1
         ... = efac(n+2)       : rfl

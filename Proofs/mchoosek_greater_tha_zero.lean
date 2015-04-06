@@ -14,3 +14,4 @@ check mchoosen 5 1 = 5
 check mchoosen 5 2 = 10
 
 --- checking it is greater than zero 
+
