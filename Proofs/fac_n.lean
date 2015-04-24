@@ -20,3 +20,29 @@ theorem fac_n: ∀ n, mchoosen 10 n = mchoosen 10 (10-n) := calc
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
