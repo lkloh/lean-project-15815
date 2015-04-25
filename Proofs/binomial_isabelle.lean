@@ -8,6 +8,7 @@ open nat
 definition binomial : nat → nat → nat
 | binomial 0 0 := 1
 | binomial 0 k := 0
+| binomial (succ n) (succ n) := 1
 | binomial(succ n) 0 := 1
 | binomial(succ n) k := binomial n (k-1) + binomial n k
 
@@ -30,7 +31,43 @@ theorem binomial_0_Suc : ∀ k, binomial 0 (succ k) = 0
 | binomial_0_Suc (succ k) := show binomial 0 (succ k) = 0, from rfl
 
 
+-- ****************************************************************** --
 
+-- "(Suc n choose Suc k) = (n choose k) + (n choose Suc k)"
+-- Needs help
 
 
 -- ****************************************************************** --
+
+-- n choose n = 1
+lemma binomial_n_n : ∀ n, binomial n n = 1
+| binomial_n_n 0 := show binomial 0 0 = 1, from rfl
+| binomial_n_n (succ n) := show binomial (succ n) (succ n) = 1, from rfl
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
