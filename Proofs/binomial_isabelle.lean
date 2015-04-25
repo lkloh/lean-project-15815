@@ -58,7 +58,7 @@ theorem binomial_n_n : ∀ n, binomial n n = 1
 | binomial_n_n (succ n) := calc
 	binomial (succ n) (succ n) = binomial n n + binomial n (succ n) : rfl
 	...  = 1 + binomial n (succ n) : {binomial_n_n }
-	...  = 
+	...  = 1 + 0 : binomial_eq_0
 
 
 
