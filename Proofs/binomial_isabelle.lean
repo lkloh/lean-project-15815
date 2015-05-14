@@ -46,7 +46,7 @@ nat.induction_on n
 		calc
 			binomial (succ n) k = binomial n (k-1) + binomial n k : rfl
 			... = binomial n (k-1) + 0 : IH
-			... = binomial
+			... = binomial 
 	)
 
 
