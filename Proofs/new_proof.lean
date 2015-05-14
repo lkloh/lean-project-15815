@@ -23,6 +23,7 @@ nat.induction_on n
 			binomial (succ n') k = binomial (succ n') (succ k') : H' 
 			... = binomial n' k' + binomial n' (succ k') : rfl
 			... = 0 + binomial n' (succ k') : lt_of_succ_lt_succ H 
+			... = binomial n' (succ k') : zero_add
 			... = 0 + 0 : lt_succ_of_le H' n' (succ k')
 			... = 0 : zero_add)
 
