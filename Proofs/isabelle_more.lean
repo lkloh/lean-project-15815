@@ -10,11 +10,19 @@ definition binomial : nat → nat → nat
 
 -- ****************************************************************** --
 
+theorem binomial_eq_0 {n : ℕ} : ∀{k}, n < k → binomial n k = 0 := sorry
+
+
+-- ****************************************************************** --
+
 -- "n choose n = 1"
 theorem binomial_n_n : ∀ n, binomial n n = 1
 | binomial_n_n 0 := show binomial 0 0 = 1, from rfl
 | binomial_n_n (succ n) := calc
-	binomial (succ n) (succ n) = 1 : sorry
+	binomial (succ n) (succ n) = binomial n n + binomial n (succ n) : rfl
+	... = 1 + binomial n (succ n) : {binomial_n_n n}
+	... = 1 + 0 : binomial_eq_0 (lt_succ_self n)
+	... = 1 : rfl
 
 -- ****************************************************************** --
 
@@ -45,5 +53,10 @@ theorem binomial_1 : ∀ n, binomial n (succ 0) = n
 	... = 1 + n : {binomial_n_0 n}
 	... = n + 1 : add.comm
 	... = succ n : rfl
+
+
+
+
+
 
 
