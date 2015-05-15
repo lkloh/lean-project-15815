@@ -37,28 +37,7 @@ theorem binomial_0_Suc : ∀ k, binomial 0 (succ k) = 0
 
 -- ****************************************************************** --
 
--- n < k ==> n choose k = 0
-theorem binomial_eq_0: {n k : ℕ} (H : n < k) : (binomial n k = 0) :=
-nat.induction_on n
-	(calc binomial 0 k = 0 : rfl)
-	(take n,
-		assume IH : binomial n k = 0,
-		calc
-			binomial (succ n) k = binomial n (k-1) + binomial n k : rfl
-			... = binomial n (k-1) + 0 : IH
-			... = binomial 
-	)
 
-
--- ****************************************************************** --
-
--- n choose n = 1
-theorem binomial_n_n : ∀ n, binomial n n = 1
-| binomial_n_n 0 := show binomial 0 0 = 1, from rfl
-| binomial_n_n (succ n) := calc
-	binomial (succ n) (succ n) = binomial n n + binomial n (succ n) : rfl
-	...  = 1 + binomial n (succ n) : {binomial_n_n }
-	...  = 1 + 0 : binomial_eq_0
 
 
 
