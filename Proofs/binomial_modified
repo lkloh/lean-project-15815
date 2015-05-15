@@ -7,6 +7,7 @@ definition binomial : nat → nat → nat
 | binomial (succ n) 0 := 1
 | binomial (succ n) (succ k) := binomial n k + binomial n (succ k)
 
+
 -- ****************************************************************** --
 
 theorem binomial_eq_0 {n : ℕ} : ∀{k}, n < k → binomial n k = 0 := 
@@ -38,3 +39,19 @@ theorem binomial_n_n : ∀ n, binomial n n = 1
 	...  = 1 + 0 : binomial_eq_0
 
 -- ****************************************************************** --
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

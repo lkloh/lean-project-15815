@@ -29,14 +29,7 @@ theorem binomial_0_Suc : ∀ k, binomial 0 (succ k) = 0
 | binomial_0_Suc 0 := show binomial 0 1 = 0, from rfl
 | binomial_0_Suc (succ k) := show binomial 0 (succ k) = 0, from rfl
 
-
 -- ****************************************************************** --
-
--- "(Suc n choose Suc k) = (n choose k) + (n choose Suc k)"
--- Needs help
-
--- ****************************************************************** --
-
 
 
 
