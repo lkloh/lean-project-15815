@@ -10,7 +10,13 @@ definition binomial : nat → nat → nat
 -- ****************************************************************** --
 
 -- 0 <= binomial n k 
-theorem binomial_geq_0 {n : ℕ} : ∀{k}, 0 ≤ binomial n k  := sorry
+theorem binomial_geq_0 {n : ℕ} : ∀{k}, binomial n k ≥ 0 := sorry
+
+-- ****************************************************************** --
+
+-- "(Suc n choose Suc k) = (n choose k) + (n choose Suc k)"
+theorem binomial_Suc_Suc {n k : ℕ} : binomial (succ n) (succ k) = binomial n k + binomial n (succ k) := 
+rfl
 
 
 -- ****************************************************************** --
@@ -55,11 +61,10 @@ nat.induction_on n
 		obtain k' (H' : k = succ k'), from exists_eq_succ_of_lt H,
 			have H1 : succ k' ≤ succ n', from eq.subst H' H,
 			have H2 : k' ≤ n', from lt_of_succ_lt_succ H1,
-            have H3 : k' ≤ succ n', from lt.trans !lt_succ_self H1,
 		calc 
 			binomial (succ n') k = binomial (succ n') (succ k') : H'
 							 ... = binomial n' k' + binomial n' (succ k') : rfl
-							 ... > 0 + binomial n' (succ k') : {IH H3}
+							 ... > 0 + binomial n' (succ k') : sorry
 							 ... > binomial n' (succ k') : zero_add
 							 ... > 0 : binomial_geq_0)
 
