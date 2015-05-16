@@ -18,7 +18,6 @@ theorem binomial_geq_0 {n : ℕ} : ∀{k}, binomial n k ≥ 0 := sorry
 theorem binomial_Suc_Suc {n k : ℕ} : binomial (succ n) (succ k) = binomial n k + binomial n (succ k) := 
 rfl
 
-
 -- ****************************************************************** --
 
 -- "n < k ==> n choose k = 0"
