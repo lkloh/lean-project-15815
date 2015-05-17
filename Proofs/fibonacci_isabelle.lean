@@ -39,7 +39,7 @@ nat.induction_on n
 	(calc 
 		take m IH, calc
 			fib( (succ m) + k + 1 ) = fib( succ(m + k + 1) ) : succ_add
-			... = fib(succ (succ (m+k))) : add_one
+			... = fib(succ (succ (m+k))) : add_le_add_right (fib_pos n) 0
 			... = 
 
 
