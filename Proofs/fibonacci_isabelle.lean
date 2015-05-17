@@ -37,8 +37,10 @@ nat.induction_on n
 		... = fib(k+1)*1 + fib(0) : rfl
 		... = fib(k+1)*1 + fib(k)*fib(0) : mul_zero)
 	(calc 
-		take k' IH,
-			assume H : )
+		take m IH, calc
+			fib( (succ m) + k + 1 ) = fib( succ(m + k + 1) ) : succ_add
+			... = fib(succ (succ (m+k))) : add_one
+			... = 
 
 
 
