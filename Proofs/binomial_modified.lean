@@ -38,11 +38,10 @@ nat.induction_on n
 			... = binomial n' (succ k') : zero_add
 			... = 0 : IH H2)
 
--- ****************************************************************** --
 
--- binomial n k >= 0
-theorem binomial_geq_0 (n k : ℕ) : binomial n k ≥ 0 := 
-	sorry
+
+
+
 
 -- ****************************************************************** --
 
@@ -62,15 +61,22 @@ nat.induction_on k
 		obtain n' (H' : n = succ n'), from exists_eq_succ_of_lt H,
 			have H1 : succ k' ≤ succ n', from eq.subst H' H,
             have H2 : k' ≤ n', from lt_of_succ_lt_succ H1,
-            have H3 : binomial n (succ k') = binomial (succ n') (succ k'), from H',
-            have H4 : binomial (succ n') (succ k') = binomial n' k' + binomial n' (succ k'), from rfl,
-            have H5 : binomial n' k' + binomial n' (succ k') > 0 + binomial n' (succ k'), from add_lt_add_left (IH H2),
-            have H6 : binomial n' k' + binomial n' (succ k') > binomial n' (succ k'), from zero_add,
-            have H7 : binomial n' k' + binomial n' (succ k') ≥ 0, from gt_of_gt_of_ge H6 (binomial_geq_0 n' (succ k')),
         calc
-        	binomial n (succ k') = binomial (succ n') (succ k') : H3
+        	binomial n (succ k') = binomial (succ n') (succ k') : H'
         		... = binomial n' k' + binomial n' (succ k') : rfl
-        		... ≥ 0 : H7)
+        		... > 0 + binomial n' (succ k') : add_lt_add_left (IH H2)
+        		... > 0 : !lt_add_of_pos_right)
+
+
+
+
+
+
+
+
+
+
+
 
 
 

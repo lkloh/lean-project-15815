@@ -29,30 +29,17 @@ theorem fib_pos : ∀ n, 0 ≤ fib n,
 
 -- "fib (n + k + 1) = fib (k + 1) * fib (n + 1) + fib k * fib n"
 
-theorem fib_add {n k : ℕ} : fib(n + k + 1) = fib (k + 1) * fib (n + 1) + fib k * fib n
+theorem fib_add {n k : ℕ} : fib(n + k + 1) = fib (k + 1) * fib (n + 1) + fib k * fib n,
 nat.induction_on n
 	(calc
 		fib(k+1) = fib(k+1)*1 : mul_one
 		... = fib(k+1)*1 + 0  : add_zero
 		... = fib(k+1)*1 + fib(0) : rfl
 		... = fib(k+1)*1 + fib(k)*fib(0) : mul_zero)
-	(calc 
-		take m IH, calc
+	(take m IH, 
+		calc
 			fib( (succ m) + k + 1 ) = fib( succ(m + k + 1) ) : succ_add
 			... = fib(succ (succ (m+k))) : add_le_add_right (fib_pos n) 0
-			... = 
+			... = fib(m+k) + fib(succ(m+k)) : rfl
+			... = fib (k + 1) * fib (n + 1) + fib k * fib n : sorry)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
