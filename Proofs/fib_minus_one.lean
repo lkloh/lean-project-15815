@@ -28,8 +28,10 @@ theorem fibminus: ∀ n, sumF(n)+1 = fib(n+2)
 -- ****************************************************************** --
 
 theorem fib_pos : ∀ n, 0 < fib n,
-fib_pos 0 := show 0 < 1, from zero_lt_succ 0, fib_pos 1 := show 0 < 1, from zero_lt_succ 0, fib_pos (a+2) := calc
-  0 = 0 + 0             : rfl
-... < fib (a+1) + 0     : add_lt_add_right (fib_pos (a+1)) 0
-... < fib (a+1) + fib a : add_lt_add_left  (fib_pos a)     (fib (a+1))
-... = fib (a+2)         : rfl
+	fib_pos 0 := show 0 < 1, from zero_lt_succ 0, 
+	fib_pos 1 := show 0 < 1, from zero_lt_succ 0, 
+	fib_pos (a+2) := calc
+		  0 = 0 + 0             : rfl
+		... < fib (a+1) + 0     : add_lt_add_right (fib_pos (a+1)) 0
+		... < fib (a+1) + fib a : add_lt_add_left  (fib_pos a)     (fib (a+1))
+		... = fib (a+2)         : rfl
