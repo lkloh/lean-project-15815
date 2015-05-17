@@ -13,6 +13,7 @@ definition sumF : nat → nat
 
 eval sumF(2)
 
+
 -- ****************************************************************** --
 
 theorem fibminus: ∀ n, sumF(n)+1 = fib(n+2)
