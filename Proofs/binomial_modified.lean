@@ -7,10 +7,6 @@ definition binomial : nat → nat → nat
 | binomial (succ n) 0 := 1
 | binomial (succ n) (succ k) := binomial n k + binomial n (succ k)
 
--- ****************************************************************** --
-
--- 0 <= binomial n k 
-theorem binomial_geq_0 {n : ℕ} : ∀{k}, binomial n k ≥ 0 := sorry
 
 -- ****************************************************************** --
 
@@ -44,6 +40,12 @@ nat.induction_on n
 
 -- ****************************************************************** --
 
+-- binomial n k >= 0
+theorem binomial_geq_0 (n k : ℕ) : binomial n k ≥ 0 := 
+	sorry
+
+-- ****************************************************************** --
+
 -- "k <= n ==> binomial n k > 0"
 
 theorem zero_less_binomial {n : ℕ} : ∀{k}, k ≤ n → binomial n k > 0 :=
@@ -63,7 +65,10 @@ nat.induction_on n
 		calc 
 			binomial (succ n') k = binomial (succ n') (succ k') : H'
 							 ... = binomial n' k' + binomial n' (succ k') : rfl
-							 ... > 0 + binomial n' (succ k') : sorry
-							 ... > binomial n' (succ k') : zero_add
-							 ... > 0 : binomial_geq_0)
+							 ... > 0 + binomial n' (succ k') : IH H2
+							 ... = binomial n' (succ k') : add_lt_add_left
+							 ... ≥ 0 : binomial_geq_0)
 
+
+
+							 
