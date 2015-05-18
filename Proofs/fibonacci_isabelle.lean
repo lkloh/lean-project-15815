@@ -28,6 +28,18 @@ theorem fib_pos : ∀ n, 0 ≤ fib n,
 
 -- "fib (n + k + 1) = fib (k + 1) * fib (n + 1) + fib k * fib n"
 
+theorem fib_test (n k : ℕ) : fib(succ (n + k)) = fib (succ k) * fib (succ n) + fib k * fib n :=
+nat.induction_on n
+	(calc
+		fib(succ (0 + k)) = fib (succ k) * fib (succ 0) + fib k * fib 0 : sorry)
+	(take n' IH,
+		calc
+			fib(succ ((succ n') + k) ) = fib (succ k) * fib (succ (succ n')) + fib k * fib (succ n') : sorry) 
+
+-- ****************************************************************** --
+
+-- "fib (n + k + 1) = fib (k + 1) * fib (n + 1) + fib k * fib n"
+
 theorem fib_add (n k : ℕ) : fib(succ (n + k)) = fib (succ k) * fib (succ n) + fib k * fib n :=
 nat.induction_on k
 	(calc
