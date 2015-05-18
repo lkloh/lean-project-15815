@@ -46,7 +46,7 @@ nat.induction_on n
 	(calc
 		fib (0 + k + 1) = fib (k + 1) * fib (0 + 1) + fib k * fib 0 : sorry)
 	(take n' IH, calc
-		fib (n' + 2 + k + 1) = fib (k + 1) * fib (n + 2 + 1) + fib k * fib (n + 2) : sorry) 
+		fib (succ (succ n') + k + 1) = fib (k + 1) * fib (succ (succ n') + 1) + fib k * fib (succ (succ n')) : sorry) 
 
 -- ****************************************************************** --
 
