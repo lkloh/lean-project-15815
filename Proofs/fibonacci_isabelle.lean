@@ -31,7 +31,8 @@ theorem fib_pos : ∀ n, 0 ≤ fib n,
 theorem fib_test (n k : ℕ) : fib(succ (n + k)) = fib (succ k) * fib (succ n) + fib k * fib n :=
 nat.induction_on n
 	(calc
-		fib(succ (0 + k)) = fib (succ k) * fib (succ 0) + fib k * fib 0 : sorry)
+		fib (succ (0 + k)) = fib (succ k) : zero_add
+			... = fib (succ k) * fib (succ 0) + fib k * fib 0 : sorry)
 	(take n' IH,
 		calc
 			fib(succ ((succ n') + k) ) = fib (succ k) * fib (succ (succ n')) + fib k * fib (succ n') : sorry) 
