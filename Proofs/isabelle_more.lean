@@ -57,7 +57,7 @@ theorem binomial_1 : ∀ n, binomial n (succ 0) = n
 -- ****************************************************************** --
 
 -- "(Suc n choose Suc k) = (n choose k) + (n choose Suc k)"
-theorem binomial_Suc_Suc : ∀ n, binomial n (succ 0) = n
+theorem binomial_Suc_Suc (n k : ℕ) : binomial (succ n) (succ k) = binomial n k + binomial n (succ k) := rfl
 
 
 
