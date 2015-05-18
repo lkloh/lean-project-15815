@@ -41,15 +41,7 @@ theorem fib_pos : ∀ n, 0 < fib n,
 -- ****************************************************************** --
 
 
--- "fib (n + k + 1) = fib (k + 1) * fib (n + 1) + fib k * fib n"
 
-theorem fib_add (n k : ℕ) : fib(n + k + 1) = fib (k + 1) * fib (n + 1) + fib k * fib n :=
-nat.induction_on k
-	(calc
-		fib(n + 0 + 1) = fib (0 + 1) * fib (n + 1) + fib 0 * fib n : sorry)
-	(take k' IH,
-		calc 
-			fib(n + succ k' + 1) = fib (succ k' + 1) * fib (n + 1) + fib (succ k') * fib n : sorry)
 
 
 
