@@ -39,7 +39,7 @@ nat.induction_on n
 			... = fib (succ k) * fib (succ 0) + fib k * fib 0 : rfl)
 	(take n' IH,
 		calc
-			fib(succ ((succ n') + k) ) = fib (succ k) * fib (succ (succ n')) + fib k * fib (succ n') : sorry) 
+			fib(succ (succ (succ n') + k) ) = fib (succ k) * fib (succ (succ n')) + fib k * fib (succ n') : sorry) 
 
 -- ****************************************************************** --
 
