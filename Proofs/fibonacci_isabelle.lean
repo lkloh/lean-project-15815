@@ -59,7 +59,7 @@ nat.induction_on k
 			fib(succ (n + succ k')) = fib(succ (succ (n + k'))) : add_succ
 				... = fib (succ (succ k')) * fib (succ n) + fib (succ k') * fib n : sorry) 
 
-
+-- ****************************************************************** --
 
 
 
