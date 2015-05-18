@@ -32,6 +32,10 @@ theorem fib_test (n k : ℕ) : fib(succ (n + k)) = fib (succ k) * fib (succ n) +
 nat.induction_on n
 	(calc
 		fib (succ (0 + k)) = fib (succ k) : zero_add
+			... = fib (succ k) * 1 : mul_one
+			... = fib (succ k) * 1 + 0 : add_zero
+			... = fib (succ k) * fib (succ 0) + 0 : rfl
+			... = fib (succ k) * fib (succ 0) + fib k * 0 : mul_zero
 			... = fib (succ k) * fib (succ 0) + fib k * fib 0 : sorry)
 	(take n' IH,
 		calc
