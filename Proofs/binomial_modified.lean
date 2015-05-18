@@ -38,11 +38,10 @@ nat.induction_on n
 			... = binomial n' (succ k') : zero_add
 			... = 0 : IH H2)
 
--- ****************************************************************** --
 
--- binomial n k >= 0
-theorem binomial_geq_0 (n k : ℕ) : binomial n k ≥ 0 := 
-	sorry
+
+
+
 
 -- ****************************************************************** --
 
@@ -66,10 +65,18 @@ nat.induction_on k
         	binomial n (succ k') = binomial (succ n') (succ k') : H'
         		... = binomial n' k' + binomial n' (succ k') : rfl
         		... > 0 + binomial n' (succ k') : add_lt_add_left (IH H2)
-        		... = binomial n' (succ k') : zero_add
-        		... ≥ 0 : binomial_geq_0
-        		... > 0 : gt_of_gt_of_ge
-        )
+        		... > 0 : !lt_add_of_pos_right)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
