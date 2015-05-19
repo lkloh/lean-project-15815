@@ -23,23 +23,7 @@ theorem fib_pos : ∀ n, 0 ≤ fib n,
 		... ≤ fib n + 0     : add_le_add_right (fib_pos n) 0
 		... ≤ fib n + fib (succ n) : add_le_add_left  (fib_pos (succ n)) (fib n)
 		... = fib (succ (succ n)) : rfl
-
--- ****************************************************************** --
-
--- "fib (n + k + 1) = fib (k + 1) * fib (n + 1) + fib k * fib n"
-
-theorem fib_test (n k : ℕ) : fib(succ (n + k)) = fib (succ k) * fib (succ n) + fib k * fib n :=
-nat.induction_on n
-	(calc
-		fib (succ (0 + k)) = fib (succ k) : zero_add
-			... = fib (succ k) * 1 : mul_one
-			... = fib (succ k) * 1 + 0 : add_zero
-			... = fib (succ k) * fib (succ 0) + 0 : rfl
-			... = fib (succ k) * fib (succ 0) + fib k * 0 : mul_zero
-			... = fib (succ k) * fib (succ 0) + fib k * fib 0 : rfl)
-	(take n' IH,
-		calc
-			fib(succ (succ (succ n') + k) ) = fib (succ k) * fib (succ (succ n')) + fib k * fib (succ n') : sorry) 
+ 
 
 -- ****************************************************************** --
 
@@ -61,7 +45,15 @@ nat.induction_on k
 
 -- ****************************************************************** --
 
+-- gcd (fib n) (fib (n + 1)) = 1
+theorem gcd_fib_Suc_eq_1 : ∀ n, gcd (fib n) (fib (n + 1)) = 1,
+  	gcd_fib_Suc_eq_1 0 := calc
+		gcd (fib 0) (fib(0 + 1)) = 1 : sorry,
+	gcd_fib_Suc_eq_1 (succ n) := calc
+		gcd (fib (succ n)) (fib (succ n + 1)) = 1 : sorry
 
+
+-- ****************************************************************** --
 
 
 
