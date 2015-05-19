@@ -12,7 +12,6 @@ eval summ 3
 
 theorem two : 1+1 = 2 := rfl
 
--- ****************************************************************** --
 
 theorem summ_form : ∀ n, 2 * summ n = n*(n+1)
 | summ_form 0 :=  calc 
