@@ -8,7 +8,7 @@ definition fib : nat → nat
 | fib (succ 0) := 1
 | fib (succ (succ n)) := fib n + fib (succ n)
 
-eval fib(5)
+eval fib(2)
 
 -- ****************************************************************** --
 
@@ -45,6 +45,18 @@ nat.induction_on k
 
 -- ****************************************************************** --
 
+-- "gcd (m::nat) (m + n) = gcd m n"
+-- taken from isabelle
+theorem gcd_add2_nat (m n: ℕ) : gcd m (m + n) = gcd m n :=
+sorry
+
+-- ****************************************************************** --
+
+theorem gcd_succ_fib : ∀ n, gcd (fib n) (fib (succ n)) = 1 := 
+sorry
+
+-- ****************************************************************** --
+
 -- gcd (fib n) (fib (n + 1)) = 1
 theorem gcd_fib_Suc_eq_1 : ∀ n, gcd (fib n) (fib (n + 1)) = 1,
   	gcd_fib_Suc_eq_1 0 := calc
@@ -54,7 +66,15 @@ theorem gcd_fib_Suc_eq_1 : ∀ n, gcd (fib n) (fib (n + 1)) = 1,
 			... = fib (succ 0) : rfl
 			... = 1 : rfl,
 	gcd_fib_Suc_eq_1 (succ n) := calc
-		gcd (fib (succ n)) (fib (succ n + 1)) = 1 : sorry
+		gcd (fib (succ n)) (fib (succ n + 1)) = gcd (fib (succ n)) (fib (succ (n + 1))) : succ_add
+		  	... = gcd (fib (succ n)) ( (fib (succ 1)) * (fib (succ n)) + (fib 1) * (fib n)) : fib_add
+		  	... = gcd (fib (succ n)) ( 1 * (fib (succ n)) + (fib 1) * (fib n)) : rfl
+		  	... = gcd (fib (succ n)) ( 1 * (fib (succ n)) + 1 * (fib n)) : rfl
+		  	... = gcd (fib (succ n)) ( (fib (succ n)) + 1 * (fib n)) : one_mul
+		  	... = gcd (fib (succ n)) ( (fib (succ n)) + (fib n) ) : one_mul
+		  	... = gcd (fib (succ n)) (fib n) : sorry
+		  	... = gcd (fib n) (fib (succ n)) : gcd.comm
+		  	... = 1 : gcd_succ_fib
 
 
 -- ****************************************************************** --
