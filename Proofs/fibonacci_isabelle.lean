@@ -48,7 +48,11 @@ nat.induction_on k
 -- gcd (fib n) (fib (n + 1)) = 1
 theorem gcd_fib_Suc_eq_1 : ∀ n, gcd (fib n) (fib (n + 1)) = 1,
   	gcd_fib_Suc_eq_1 0 := calc
-		gcd (fib 0) (fib(0 + 1)) = 1 : sorry,
+		gcd (fib 0) (fib(0 + 1)) = gcd 0 (fib(0 + 1)) : rfl
+			... = fib(0 + 1) : gcd_zero_left
+			... = fib 1 : zero_add
+			... = fib (succ 0) : rfl
+			... = 1 : rfl,
 	gcd_fib_Suc_eq_1 (succ n) := calc
 		gcd (fib (succ n)) (fib (succ n + 1)) = 1 : sorry
 
