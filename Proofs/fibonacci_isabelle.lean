@@ -72,7 +72,7 @@ theorem gcd_fib_Suc_eq_1 : ∀ n, gcd (fib n) (fib (n + 1)) = 1,
 		  	... = gcd (fib (succ n)) ( 1 * (fib (succ n)) + 1 * (fib n)) : rfl
 		  	... = gcd (fib (succ n)) ( (fib (succ n)) + 1 * (fib n)) : one_mul
 		  	... = gcd (fib (succ n)) ( (fib (succ n)) + (fib n) ) : one_mul
-		  	... = gcd (fib (succ n)) (fib n) : sorry
+		  	... = gcd (fib (succ n)) (fib n) : gcd_add2_nat
 		  	... = gcd (fib n) (fib (succ n)) : gcd.comm
 		  	... = 1 : gcd_succ_fib
 
